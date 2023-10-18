@@ -1,0 +1,22 @@
+@startuml TravelAgency
+class Client {
+bookTransportation(id_transportation)
+}
+Interface Transportation {
+id
+}
+class BookingFactory {
+createBooking()
+}
+Transportation <|.. Plane
+Transportation <|.. Boat
+Transportation <|.. Car
+Transportation <|.. Train
+
+Plane -- BookingFactory : creates
+Boat -- BookingFactory : creates
+Train -- BookingFactory : creates
+Car -- BookingFactory : creates
+BookingFactory -- Client : create transportation booking 
+Transportation <.. Client : <<use>>
+@enduml
